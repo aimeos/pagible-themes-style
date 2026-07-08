@@ -244,6 +244,45 @@ body > header .brand a {
     text-transform: uppercase;
 }
 
+nav details {
+    margin: 0;
+}
+
+header nav details.dropdown > summary {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    height: auto;
+    margin: 0;
+    padding: 0.75rem 0.625rem;
+    color: var(--pico-color);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-family: var(--pico-font-family-display);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header nav details.dropdown > summary:hover,
+header nav details.dropdown > summary:focus,
+header nav details.dropdown > summary:focus-visible,
+header nav details.dropdown > summary:active,
+header nav details.dropdown[open] > summary {
+    color: var(--pico-primary-hover);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+header nav details summary::marker,
+header nav details summary::-webkit-details-marker {
+    display: none;
+}
+
 header nav .menu-open,
 header nav .menu-close,
 header nav .sidebar-open,
