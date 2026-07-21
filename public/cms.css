@@ -65,7 +65,7 @@
     --pico-box-shadow: color-mix(in srgb, var(--pico-contrast) 16%, transparent);
     --pico-dropdown-color: var(--pico-contrast);
     --pico-dropdown-border-color: var(--pico-contrast-border);
-    --pico-dropdown-background-color: var(--pico-muted-background-color);
+    --pico-dropdown-background-color: var(--pico-background-color);
     --pico-dropdown-hover-background-color: var(--pico-muted-background-color);
     --pico-dropdown-box-shadow: 0 0.5rem 1.5rem -0.25rem var(--pico-box-shadow), 0 0.25rem 0.5rem -0.25rem var(--pico-box-shadow);
     --pico-modal-overlay-background-color: color-mix(in srgb, var(--pico-background-color) 40%, transparent);
