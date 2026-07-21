@@ -60,6 +60,8 @@ class StyleDemo extends AbstractDemo
 
     private string $element;
     private string $logoFile;
+    /** @var array<string, string> File IDs for fixed-ratio portrait images */
+    private array $portraitImages = [];
     /** @var array<string, string> File IDs for fixed-ratio pricing images */
     private array $pricingImages = [];
     /** @var array<string, string> File IDs for fixed-ratio slideshow images */
@@ -100,13 +102,12 @@ class StyleDemo extends AbstractDemo
                 'file' => ['id' => $this->img( 'portrait' ), 'type' => 'file'],
                 'position' => 'grid-end',
                 'ratio' => '1-2',
-                'text' => "## A label built at the cutting table\n\nMara Vey founded Veyra in 2019 after twelve years cutting patterns for larger houses in Paris and Antwerp. The first collection contained one coat, one trouser, and two dresses. The method has not changed much since.\n\nA line earns its place through repeated fittings, not a seasonal theme. The studio works directly with small mills, cutters, and finishers who can answer a question without a chain of intermediaries.",
+                'text' => "## Born at the table\n\nMara Vey founded Veyra in 2019 after twelve years cutting patterns for larger houses in Paris and Antwerp. The first collection contained one coat, one trouser, and two dresses. The method has not changed much since.\n\nA line earns its place through repeated fittings, not a seasonal theme. The studio works directly with small mills, cutters, and finishers who can answer a question without a chain of intermediaries.",
             ]],
             ['id' => 'process', 'type' => 'cards', 'group' => 'main', 'data' => [
                 'title' => 'Four hands on every piece',
                 'cards' => [
-                    ['title' => 'Pattern', 'text' => 'Every style starts at full scale on paper. Proportion is settled before decoration enters the room.'],
-                    ['title' => 'Toile', 'text' => 'Calico reveals balance, reach, and volume. Most styles return to the table three or four times.'],
+                    ['title' => 'Pattern & toile', 'text' => 'Every style starts at full scale on paper. Calico then tests balance, reach, and volume through repeated fittings.'],
                     ['title' => 'Cut', 'text' => 'Cloth is rested, matched, and cut in small lays to preserve grain and reduce avoidable waste.'],
                     ['title' => 'Finish', 'text' => 'Buttonholes, hems, linings, and final pressing are checked by the same team that made the sample.'],
                 ],
@@ -122,7 +123,7 @@ class StyleDemo extends AbstractDemo
                 ],
             ]],
             ['id' => Utils::uid(), 'type' => 'table', 'group' => 'main', 'data' => [
-                'title' => 'Material ledger — Collection No. 08',
+                'title' => 'Material ledger — Edition No. 08',
                 'header' => 'row+col',
                 'table' => [
                     ['Cloth', 'Origin', 'Used for', 'Why it was chosen'],
@@ -194,14 +195,18 @@ class StyleDemo extends AbstractDemo
                 "Before the Orbit Coat has weight, colour, or a pocket, it is a line drawn at full scale. The shoulder begins slightly behind the body. The front closes off-centre. The hem turns forward by less than a centimetre.\n\nNone of those decisions look dramatic on paper. Together, they determine whether the coat holds its shape while the person inside it keeps moving.",
                 $this->img( 'coat' )
             ),
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Draw the balance first',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'pattern' ), 'type' => 'file'],
                 'position' => 'grid-end',
                 'ratio' => '1-2',
-                'text' => "## Draw the balance first\n\nA coat pattern is a set of negotiations. Space across the back must not become bulk at the waist. A strong shoulder must still let the arm reach a bicycle handlebar. A deep pocket must not pull the front out of line.\n\nWe test those relationships in calico before cutting wool. The toile looks plain because it has nowhere to hide. That is its value.",
+                'text' => "A coat pattern is a set of negotiations. Space across the back must not become bulk at the waist. A strong shoulder must still let the arm reach a bicycle handlebar. A deep pocket must not pull the front out of line.\n\nWe test those relationships in calico before cutting wool. The toile looks plain because it has nowhere to hide. That is its value.",
             ]],
             ['id' => Utils::uid(), 'type' => 'table', 'group' => 'main', 'data' => [
-                'title' => 'Orbit Coat — pattern record',
+                'title' => 'Orbit Coat pattern record',
                 'header' => 'row',
                 'table' => [
                     ['Stage', 'Question', 'Decision'],
@@ -231,16 +236,20 @@ class StyleDemo extends AbstractDemo
                 "Turn woven cloth forty-five degrees and its behaviour changes. The stable grid begins to yield. A straight length becomes responsive, following the body without darts or rigid shaping.\n\nThat movement gives the Column Dress its ease. It also means the cloth has to be listened to before it can be finished.",
                 $this->img( 'dress' )
             ),
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Let the cloth settle',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'detail' ), 'type' => 'file'],
                 'position' => 'grid-start',
                 'ratio' => '1-2',
-                'text' => "## Let the cloth settle\n\nOnce cut, each dress hangs for forty-eight hours. The silk lengthens where gravity finds the most give. Only then is the hem marked on the stand and levelled by hand.\n\nRushing that pause produces a dress that changes after its first evening out. Waiting lets the fabric find the line it intends to keep.",
+                'text' => "Once cut, each dress hangs for forty-eight hours. The silk lengthens where gravity finds the most give. Only then is the hem marked on the stand and levelled by hand.\n\nRushing that pause produces a dress that changes after its first evening out. Waiting lets the fabric find the line it intends to keep.",
             ]],
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
-                'title' => 'Three rules for the bias',
+                'title' => 'Three rules for bias',
                 'cards' => [
-                    ['title' => 'Cut alone', 'text' => 'Every layer is cut separately so the silk cannot shift against itself.'],
+                    ['title' => 'Cut one by one', 'text' => 'Every layer is cut separately so the silk cannot shift against itself.'],
                     ['title' => 'Handle lightly', 'text' => 'Seams are supported without removing the natural yield that gives the dress its movement.'],
                     ['title' => 'Finish last', 'text' => 'The final length is set only after the garment has rested and been fitted on the body.'],
                 ],
@@ -253,15 +262,15 @@ class StyleDemo extends AbstractDemo
 
         $this->page( [
             'lang' => 'en',
-            'name' => 'A fitting is a conversation',
-            'title' => 'A Fitting Is a Conversation',
+            'name' => 'A fitting starts with you',
+            'title' => 'A Fitting Starts With You',
             'path' => 'a-fitting-is-a-conversation',
             'tag' => 'article',
             'type' => 'blog',
             'status' => 1,
         ], [
             $this->article(
-                'A fitting is a conversation',
+                'A fitting starts with you',
                 "A fitting is often described as correction: lift this shoulder, narrow that waist, shorten this side. We begin elsewhere. How does the client stand when nobody arranges them? Where do they put a phone? Which shoes change the proportion?\n\nThe garment has a point of view, but it also has to enter a real life.",
                 $this->img( 'fitting' )
             ),
@@ -276,11 +285,14 @@ class StyleDemo extends AbstractDemo
                 'text' => "We ask a client to walk, sit, fasten the garment, and reach into its pockets. Those ordinary gestures show more than a still mirror can. A sleeve may be the correct length and still catch at the elbow. A waist may fit and still ask to be adjusted all day.\n\nAlterations should remove those interruptions without sanding away the design.",
             ]],
             ['id' => Utils::uid(), 'type' => 'questions', 'group' => 'main', 'data' => [
-                'title' => 'What clients ask before a fitting',
+                'title' => 'Fitting questions',
                 'items' => [
                     ['title' => 'Must I know my Veyra size?', 'text' => 'No. We begin with the garments and proportions you want to explore, then take measurements only where they help.'],
                     ['title' => 'What should I bring?', 'text' => 'Bring the shoes or foundation layer you expect to wear, especially for trousers, long dresses, and occasion pieces.'],
                     ['title' => 'Can you fit a remote order?', 'text' => 'Yes. A video fitting and a few guided measurements are enough for most pieces; complex alterations may require a local tailor.'],
+                    ['title' => 'How long does a fitting take?', 'text' => 'Allow about an hour for a first fitting. Follow-up appointments are usually shorter and concentrate on the pinned adjustments.'],
+                    ['title' => 'Will alterations change the design?', 'text' => 'They should refine how the garment sits without weakening its line. Any change that affects the design is discussed before work begins.'],
+                    ['title' => 'What happens after the fitting?', 'text' => 'You receive a written summary of the garment, cloth, measurements, alterations, final price, and expected completion date.'],
                 ],
             ]],
             $this->articleHero( 'Make time for the fitting', 'Private appointments are available Tuesday through Saturday in Berlin or by video.' ),
@@ -361,19 +373,23 @@ class StyleDemo extends AbstractDemo
                 'title' => 'Signature pieces',
                 'text' => 'Each style is cut in one small edition. Prices include a personal fitting and standard alterations before delivery.',
                 'items' => [
-                    ['name' => 'Orbit Coat', 'price' => '1,680 €', 'unit' => '/double-faced wool', 'text' => 'A long wrap coat with an off-centre close, curved back seam, and hand-finished internal edges.', 'features' => "- Ink or mineral\n- Sizes 32–46\n- Edition of 36\n- Four-week delivery", 'file' => ['id' => $this->priceImg( 'coat' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting', 'highlight' => true, 'badge' => 'Atelier signature'],
-                    ['name' => 'Fold Jacket', 'price' => '940 €', 'unit' => '/undyed wool', 'text' => 'Compact tailoring with a folded front, soft internal construction, and a clean sculpted shoulder.', 'features' => "- Natural charcoal or silver\n- Sizes 32–46\n- Edition of 48\n- Three-week delivery", 'file' => ['id' => $this->priceImg( 'jacket' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting'],
-                    ['name' => 'Column Dress', 'price' => '1,120 €', 'unit' => '/silk crepe', 'text' => 'A full-length bias-cut dress with a high back, narrow straps, and a hem levelled after the cloth has settled.', 'features' => "- Ink, oxblood, or pearl\n- Sizes 32–46\n- Edition of 42\n- Three-week delivery", 'file' => ['id' => $this->priceImg( 'dress' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting'],
+                    ['name' => 'Orbit Coat', 'price' => '1.680€', 'unit' => '/double-faced wool', 'text' => 'A long wrap coat with an off-centre close, curved back seam, and hand-finished internal edges.', 'features' => "- Ink or mineral\n- Sizes 32–46\n- Edition of 36\n- Four-week delivery", 'file' => ['id' => $this->priceImg( 'coat' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting', 'highlight' => true, 'badge' => 'Atelier signature'],
+                    ['name' => 'Fold Jacket', 'price' => '940€', 'unit' => '/undyed wool', 'text' => 'Compact tailoring with a folded front, soft internal construction, and a clean sculpted shoulder.', 'features' => "- Natural charcoal or silver\n- Sizes 32–46\n- Edition of 48\n- Three-week delivery", 'file' => ['id' => $this->priceImg( 'jacket' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting'],
+                    ['name' => 'Column Dress', 'price' => '1.120€', 'unit' => '/silk crepe', 'text' => 'A full-length bias-cut dress with a high back, narrow straps, and a hem levelled after the cloth has settled.', 'features' => "- Ink, oxblood, or pearl\n- Sizes 32–46\n- Edition of 42\n- Three-week delivery", 'file' => ['id' => $this->priceImg( 'dress' ), 'type' => 'file'], 'url' => '/visit', 'button' => 'Request a fitting'],
                 ],
+            ]],
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Fewer pieces, more ways to wear them',
             ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'detail' ), 'type' => 'file'],
                 'position' => 'grid-start',
                 'ratio' => '1-2',
-                'text' => "## Fewer pieces, more ways to wear them\n\nNo. 08 contains eleven garments. Each one was fitted with the others, so the coat clears the jacket shoulder, the long shirt sits beneath the dress, and every trouser works with both boots and a low shoe.\n\nThe point is not a prescribed wardrobe. It is a collection with enough agreement between pieces that getting dressed remains open.",
+                'text' => "No. 08 contains eleven garments. Each one was fitted with the others, so the coat clears the jacket shoulder, the long shirt sits beneath the dress, and every trouser works with both boots and a low shoe.\n\nThe point is not a prescribed wardrobe. It is a collection with enough agreement between pieces that getting dressed remains open.",
             ]],
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
-                'title' => 'Complete the line',
+                'title' => 'Finish the look',
                 'cards' => [
                     ['title' => 'Frame Trouser', 'text' => "High rise, straight leg, and a deep single pleat in linen-wool canvas. 620 €.\n\n[Ask about availability](/visit)", 'file' => ['id' => $this->img( 'look-two' ), 'type' => 'file']],
                     ['title' => 'Night Shirt', 'text' => "A long silk shirt with a wrapped cuff and side vents cut to move over trousers. 540 €.\n\n[Ask about availability](/visit)", 'file' => ['id' => $this->img( 'look-one' ), 'type' => 'file']],
@@ -453,10 +469,10 @@ class StyleDemo extends AbstractDemo
                 'file' => ['id' => $this->img( 'studio' ), 'type' => 'file'],
                 'position' => 'grid-end',
                 'ratio' => '1-2',
-                'text' => "## The city after its appointments\n\nWe photographed No. 08 on a cold evening without closing streets or building a set. The collection moved through the same doorways, platforms, and pools of light that shaped it in the studio.\n\nThe clothes are formal without waiting for an occasion. A coat crosses the city. Silk sits under wool. Tailoring loosens when the night does.",
+                'text' => "## The city off duty\n\nWe photographed No. 08 on a cold evening without closing streets or building a set. The collection moved through the same doorways, platforms, and pools of light that shaped it in the studio.\n\nThe clothes are formal without waiting for an occasion. A coat crosses the city. Silk sits under wool. Tailoring loosens when the night does.",
             ]],
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
-                'title' => 'Looks from the story',
+                'title' => 'Three key looks',
                 'cards' => [
                     ['title' => 'Look 01 — The long line', 'text' => "Orbit Coat, Night Shirt, and Frame Trouser in ink.\n\n[View collection details](/collection)", 'file' => ['id' => $this->img( 'coat' ), 'type' => 'file']],
                     ['title' => 'Look 04 — Fold and fall', 'text' => "Fold Jacket in natural charcoal over the Column Dress in oxblood.\n\n[View collection details](/collection)", 'file' => ['id' => $this->img( 'jacket' ), 'type' => 'file']],
@@ -660,7 +676,7 @@ class StyleDemo extends AbstractDemo
 
         $content = [
             ['id' => Utils::uid(), 'type' => 'hero', 'group' => 'main', 'data' => [
-                'title' => 'Made for the hour after plans change',
+                'title' => 'Dress for what follows',
                 'subtitle' => 'Veyra — Collection No. 08',
                 'text' => 'An independent Berlin label cutting limited editions in wool, silk, and linen. Strong lines, measured volume, and clothes made to move beyond one evening.',
                 'url' => '/collection',
@@ -676,13 +692,13 @@ class StyleDemo extends AbstractDemo
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
                 'title' => 'The shape of No. 08',
                 'cards' => [
-                    ['title' => 'Orbit Coat', 'text' => "Double-faced wool, an off-centre close, and room through the back for the way a city moves.\n\n[See the Orbit Coat](/collection#pieces)", 'file' => ['id' => $this->img( 'coat' ), 'type' => 'file']],
+                    ['title' => 'Orbit Coat', 'text' => "Double-faced wool, an off-centre close, and room through the back for the way a city moves—from early meetings to the last train home.\n\n[See the Orbit Coat](/collection#pieces)", 'file' => ['id' => $this->img( 'coat' ), 'type' => 'file']],
                     ['title' => 'Fold Jacket', 'text' => "Undyed wool shaped through one continuous front fold and a shoulder that stays clean without feeling rigid.\n\n[See the Fold Jacket](/collection#pieces)", 'file' => ['id' => $this->img( 'jacket' ), 'type' => 'file']],
                     ['title' => 'Column Dress', 'text' => "Weighted silk cut on the bias, allowed to settle, then levelled by hand for a line that returns after movement.\n\n[See the Column Dress](/collection#pieces)", 'file' => ['id' => $this->img( 'dress' ), 'type' => 'file']],
                 ],
             ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
-                'file' => ['id' => $this->img( 'atelier' ), 'type' => 'file'],
+                'file' => ['id' => $this->portraitImg( 'atelier' ), 'type' => 'file'],
                 'position' => 'grid-start',
                 'ratio' => '1-2',
                 'text' => "## Cut close to home\n\nVeyra develops every pattern in its Berlin atelier and produces in numbered runs with two specialist workrooms nearby. A style is released when its line, movement, and construction survive repeated fittings—not because the calendar asks for another delivery.\n\nThe result is a smaller collection with a clear purpose for every piece, enough cloth held for alterations, and a team that can repair what it made.\n\n[Enter the atelier](/atelier)",
@@ -948,6 +964,46 @@ SVG;
             ->addAtelier( $home )
             ->addBlog( $home, $journalId )
             ->addVisit( $home );
+    }
+
+
+    /**
+     * Creates a fixed 2:3 portrait image and returns its file ID.
+     *
+     * @param string $key Photo key from self::PHOTOS
+     * @return string File ID
+     */
+    protected function portraitImg( string $key ) : string
+    {
+        if( !isset( $this->portraitImages[$key] ) )
+        {
+            [$photo, $name, $desc] = self::PHOTOS[$key];
+            $base = 'https://images.unsplash.com/' . $photo;
+            $url = fn( int $w, int $h ) => $base . '?w=' . $w . '&h=' . $h . '&q=80&fm=jpg&fit=crop';
+
+            $data = [
+                'mime' => 'image/jpeg',
+                'lang' => 'en',
+                'name' => $name,
+                'path' => $url( 1200, 1800 ),
+                'previews' => ['500' => $url( 500, 750 ), '1000' => $url( 1000, 1500 )],
+                'description' => ['en' => $desc],
+            ];
+
+            $file = File::forceCreate( $data + ['editor' => 'demo'] );
+            $version = $file->versions()->forceCreate( [
+                'lang' => 'en',
+                'data' => $data,
+                'published' => true,
+                'editor' => 'demo',
+            ] );
+
+            $file->forceFill( ['latest_id' => $version->id] )->saveQuietly();
+            $file->publish( $version );
+            $this->portraitImages[$key] = (string) $file->refresh()->id;
+        }
+
+        return $this->portraitImages[$key];
     }
 
 
